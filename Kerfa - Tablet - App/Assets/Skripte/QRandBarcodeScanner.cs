@@ -17,14 +17,11 @@ public class QRandBarcodeScanner : MonoBehaviour
     string QrCode = string.Empty;
 
     private Texture2D snap;
-    void Start()
+    public void StartQR()
     {
-        Debug.Log("hier");
-
         QrCode = string.Empty;
         var renderer = rawImage;
         webcamTexture = new WebCamTexture(512, 512);
-        Debug.Log("hier");
 
         renderer.material.mainTexture = webcamTexture;
         StartCoroutine(GetQRCode());
@@ -32,12 +29,12 @@ public class QRandBarcodeScanner : MonoBehaviour
 
     IEnumerator GetQRCode()
     {
-        
         var barCodeReader = new BarcodeReaderGeneric();
         webcamTexture.Play();
         snap = new Texture2D(webcamTexture.width, webcamTexture.height, TextureFormat.ARGB32, false);
         while (string.IsNullOrEmpty(QrCode))
         {
+            Debug.Log("hier");
             try
             {
                 snap.SetPixels32(webcamTexture.GetPixels32());
@@ -78,10 +75,13 @@ public class QRandBarcodeScanner : MonoBehaviour
 
     public void StopWebcam()
     {
-        StopCoroutine(GetQRCode());
-        webcamTexture.Stop();
-        webcamTexture = null;
-        
+        if (webcamTexture != null)
+        {
+            StopCoroutine(GetQRCode());
+            //webcamTexture.Stop();
+            webcamTexture.Stop();
+            //webcamTexture = null;
+        }
     }
 }
 
