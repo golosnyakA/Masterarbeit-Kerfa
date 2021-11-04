@@ -1313,7 +1313,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3707,6 +3707,7 @@ MonoBehaviour:
   popUp: {fileID: 6437764121756417884, guid: 9178892475f52654baf40cc00411b635, type: 3}
   parent: {fileID: 748779741}
   rawImage: {fileID: 205498785}
+  QrCode: 
 --- !u!1 &1490396526
 GameObject:
   m_ObjectHideFlags: 0
@@ -4143,9 +4144,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: 
 --- !u!222 &1897775923
 CanvasRenderer:
   m_ObjectHideFlags: 0
