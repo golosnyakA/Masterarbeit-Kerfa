@@ -10,17 +10,21 @@ public class QRandBarcodeScanner : MonoBehaviour
     public GameObject popUp;
     public GameObject parent;
     public GameObject logo;
+    public Canvas CanvasQR;
 
     [SerializeField]
     public RawImage rawImage;
 
     WebCamTexture webcamTexture;
+    Result Result;
+
+    [SerializeField]
     public string QrCode = string.Empty;
+
 
     private Texture2D snap;
     public void StartQR()
     {
-        Debug.Log("hier");
         QrCode = string.Empty;
         RawImage renderer = rawImage;
         webcamTexture = new WebCamTexture(512, 512);
@@ -39,7 +43,8 @@ public class QRandBarcodeScanner : MonoBehaviour
             try
             {
                 snap.SetPixels32(webcamTexture.GetPixels32());
-                var Result = barCodeReader.Decode(snap.GetRawTextureData(), webcamTexture.width, webcamTexture.height, RGBLuminanceSource.BitmapFormat.ARGB32);
+                Result = barCodeReader.Decode(snap.GetRawTextureData(), webcamTexture.width, webcamTexture.height, RGBLuminanceSource.BitmapFormat.ARGB32);
+                Debug.Log(Result.Text);
                 if (Result != null)
                 {
                     //hier ist der string im qr gespeichert qrcode
@@ -49,12 +54,8 @@ public class QRandBarcodeScanner : MonoBehaviour
                     if (!string.IsNullOrEmpty(QrCode))
                     {
                         Debug.Log("DECODED TEXT FROM QR: " + QrCode);
-                        logo.SetActive(false);
-                        //hier die Datei Öffnen und evtl. Pop Up UI öffnenmit QR-Inhalt und ja/ nein, ob nochmal scannen?
-                        GameObject PopUp = Instantiate(popUp, parent.transform);
-                        PopUp.GetComponentInChildren<TextMeshProUGUI>().text = "Der QR-Code entspricht:\n " + QrCode ;
-                    
-                        
+                        OpenPopUP();
+
                         webcamTexture.Stop();
 
                         break;
@@ -83,11 +84,31 @@ public class QRandBarcodeScanner : MonoBehaviour
         }
     }
 
-    public void CloseCanvas()
+    private void OpenPopUP()
     {
+        logo.SetActive(false);
+        GameObject PopUp = Instantiate(popUp,parent.transform);
+        popUp.transform.localPosition = new Vector3(0, 0, 0);
+        PopUp.GetComponentInChildren<TextMeshProUGUI>().text = "Der QR-Code entspricht:\n " + QrCode;
+    }
+    public void CloseCanvas()
+    {   
+        GameObject PopUp = GameObject.Find("Pop-Up(Clone)");
+        if(PopUp != null)
+        {
+            Destroy(PopUp);
+        }
+
         parent.SetActive(false);
         StopWebcam();
         gameObject.SetActive(false);
+    }
+
+    public void DebugQR()
+    {
+        QrCode = "debugCode";
+        Result = null;
+        OpenPopUP();
     }
 }
 

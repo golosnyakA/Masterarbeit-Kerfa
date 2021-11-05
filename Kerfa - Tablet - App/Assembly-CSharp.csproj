@@ -68,6 +68,7 @@
     <Compile Include="Assets\Skripte\ButtonDebug.cs" />
     <Compile Include="Assets\Skripte\FrameCapturer.cs" />
     <Compile Include="Assets\Skripte\Manager.cs" />
+    <Compile Include="Assets\Skripte\MaterialKerfa.cs" />
     <Compile Include="Assets\Skripte\PopUPButtons.cs" />
     <Compile Include="Assets\Skripte\QRCode.cs" />
     <Compile Include="Assets\Skripte\QRandBarcodeScanner.cs" />

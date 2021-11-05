@@ -1,31 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PopUPButtons : MonoBehaviour
 {
     QRandBarcodeScanner qrScanner;
     public GameObject parent;
 
-
-    //ch qr scan -> 2 buttons 
-
-// Anlagendokumente einsehen(Ordner)
-
-//artung durchführen(Anweisung/Dokumentation
-    public void Bestaetigen()
+    public void Start()
     {
         qrScanner = GameObject.Find("QR-Manager").GetComponent<QRandBarcodeScanner>();
-        Debug.Log(qrScanner.QrCode);
+        MaterialKerfa canvasMaterial = GameObject.Find("Material").GetComponent<MaterialKerfa>();
+        qrScanner.rawImage.material = canvasMaterial.uiDefault;
+    }
+    public void Bestaetigen()
+    {
+        //hier Analge Ordner öffnen
+        qrScanner = GameObject.Find("QR-Manager").GetComponent<QRandBarcodeScanner>();
         qrScanner.OpenFile(qrScanner.QrCode);
         qrScanner.logo.SetActive(true);
         qrScanner.CloseCanvas();
         Destroy(parent);
     }
 
-    // Update is called once per frame
     public void Wiederholen()
     {
+        //erneuten Scan öffnen
         qrScanner = GameObject.Find("QR-Manager").GetComponent<QRandBarcodeScanner>();
         qrScanner.logo.SetActive(true);
         qrScanner.CloseCanvas();
@@ -33,6 +34,16 @@ public class PopUPButtons : MonoBehaviour
         qr.qrManager.SetActive(true);
         qrScanner.parent.SetActive(true);
         qrScanner.StartQR();
+        Destroy(parent);
+    }
+
+    public void WartungDurchführen()
+    {
+        //Open files... Wartungsdoku und oder 
+
+        qrScanner = GameObject.Find("QR-Manager").GetComponent<QRandBarcodeScanner>();
+        qrScanner.logo.SetActive(true);
+        qrScanner.CloseCanvas();
         Destroy(parent);
     }
 }
