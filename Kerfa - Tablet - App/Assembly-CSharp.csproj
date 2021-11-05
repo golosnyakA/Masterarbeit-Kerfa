@@ -66,13 +66,16 @@
   <ItemGroup>
     <Compile Include="Assets\Skripte\Arbeitsanweisungenöffnen.cs" />
     <Compile Include="Assets\Skripte\ButtonDebug.cs" />
+    <Compile Include="Assets\Skripte\ChangeUI.cs" />
     <Compile Include="Assets\Skripte\FrameCapturer.cs" />
     <Compile Include="Assets\Skripte\Manager.cs" />
     <Compile Include="Assets\Skripte\MaterialKerfa.cs" />
+    <Compile Include="Assets\Skripte\OpenKOS.cs" />
     <Compile Include="Assets\Skripte\PopUPButtons.cs" />
     <Compile Include="Assets\Skripte\QRCode.cs" />
     <Compile Include="Assets\Skripte\QRandBarcodeScanner.cs" />
     <Compile Include="Assets\Skripte\ScreenshotHandler.cs" />
+    <Compile Include="Assets\Skripte\SwipeMenu.cs" />
     <Compile Include="Assets\Skripte\Webcam.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

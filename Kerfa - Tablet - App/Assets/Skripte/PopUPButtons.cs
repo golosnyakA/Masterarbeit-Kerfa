@@ -19,7 +19,6 @@ public class PopUPButtons : MonoBehaviour
         //hier Analge Ordner öffnen
         qrScanner = GameObject.Find("QR-Manager").GetComponent<QRandBarcodeScanner>();
         qrScanner.OpenFile(qrScanner.QrCode);
-        qrScanner.logo.SetActive(true);
         qrScanner.CloseCanvas();
         Destroy(parent);
     }
@@ -28,7 +27,6 @@ public class PopUPButtons : MonoBehaviour
     {
         //erneuten Scan öffnen
         qrScanner = GameObject.Find("QR-Manager").GetComponent<QRandBarcodeScanner>();
-        qrScanner.logo.SetActive(true);
         qrScanner.CloseCanvas();
         Manager qr = GameObject.Find("Manager").GetComponent<Manager>();
         qr.qrManager.SetActive(true);
