@@ -9,6 +9,7 @@ public class QRandBarcodeScanner : MonoBehaviour
 {
     public GameObject popUp;
     public GameObject parent;
+    public GameObject logo;
 
     [SerializeField]
     public RawImage rawImage;
@@ -19,6 +20,7 @@ public class QRandBarcodeScanner : MonoBehaviour
     private Texture2D snap;
     public void StartQR()
     {
+        Debug.Log("hier");
         QrCode = string.Empty;
         RawImage renderer = rawImage;
         webcamTexture = new WebCamTexture(512, 512);
@@ -43,10 +45,11 @@ public class QRandBarcodeScanner : MonoBehaviour
                     //hier ist der string im qr gespeichert qrcode
 
                     QrCode = Result.Text;
-                    
+
                     if (!string.IsNullOrEmpty(QrCode))
                     {
                         Debug.Log("DECODED TEXT FROM QR: " + QrCode);
+                        logo.SetActive(false);
                         //hier die Datei Öffnen und evtl. Pop Up UI öffnenmit QR-Inhalt und ja/ nein, ob nochmal scannen?
                         GameObject PopUp = Instantiate(popUp, parent.transform);
                         PopUp.GetComponentInChildren<TextMeshProUGUI>().text = "Der QR-Code entspricht:\n " + QrCode ;
@@ -78,6 +81,13 @@ public class QRandBarcodeScanner : MonoBehaviour
             StopCoroutine(GetQRCode());
             webcamTexture.Stop();
         }
+    }
+
+    public void CloseCanvas()
+    {
+        parent.SetActive(false);
+        StopWebcam();
+        gameObject.SetActive(false);
     }
 }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FrameCapturer : MonoBehaviour
 {
-
+/*
     // Script Inputs
     public bool m_shouldCaptureOnNextFrame = false;
     public Color32[] m_lastCapturedColors;
@@ -37,5 +37,5 @@ public class FrameCapturer : MonoBehaviour
         m_centerPixTex.Apply();
 
         return m_centerPixTex.GetPixels32();
-    }
+    }*/
 }

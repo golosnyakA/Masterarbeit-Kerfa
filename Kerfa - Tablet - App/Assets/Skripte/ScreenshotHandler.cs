@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScreenshotHandler : MonoBehaviour
 {
     private Camera myCamera;
     private static ScreenshotHandler instance;
     private bool takesScreenshotOnNextFrame;
+
+    public RawImage rawImage;
     private void Awake()
     {
         instance = this;
@@ -24,6 +27,7 @@ public class ScreenshotHandler : MonoBehaviour
             renderResult.ReadPixels(rect, 0, 0);
 
             byte[] byteArray = renderResult.EncodeToPNG();
+            
             System.IO.File.WriteAllBytes(Application.dataPath + "/CameraScreenshots.png", byteArray);
             Debug.Log("Saved CameraScreenshot");
 
@@ -47,6 +51,6 @@ public class ScreenshotHandler : MonoBehaviour
 
     public void OnButtonPressed()
     {
-        TakeScreenshot_Static(700, 500);
+        TakeScreenshot_Static(1024, 450);
     }
 }

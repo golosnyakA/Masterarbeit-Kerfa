@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-class QRCode
+public class QRCode
 {
-    private string qrCode;
-    /*
-        public string QrCode()
-        {
-            /*get { return qrCode; }   // get method
-            set { qrCode = value; }  // set method*/
+   private string qrCode;
+   public string QrCode
+   {
+        get {
+            Debug.Log("der qrcode entspricht: "+ qrCode);
+            return qrCode; }   // get method
+        set { qrCode = value;
+            Debug.Log("der qrcode entspricht: " + qrCode);
+              }  // set method*/
 
-
+    }
 }
