@@ -9,11 +9,11 @@ public class Arbeitsanweisungenöffnen : MonoBehaviour
     string path;
     string directory;
     string auftrag;
-    public TMP_InputField inputfield;
+    //public TMP_InputField inputfield;
     public void OpenFileExplorer()
     {
         //hier try catch
-        auftrag = inputfield.text;
+        //auftrag = inputfield.text;
         directory = "C:\\Users\\alexa\\OneDrive\\Dokumente\\Alexander";
         //directory = string.Format("X:\\Vertrieb\\Aufträge\\{0}\\9.0_Fotos",auftrag); 
         path = EditorUtility.OpenFilePanel("Fotos speichern",directory, "");

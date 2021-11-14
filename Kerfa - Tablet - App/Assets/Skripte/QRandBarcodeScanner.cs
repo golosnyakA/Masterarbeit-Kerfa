@@ -12,6 +12,8 @@ public class QRandBarcodeScanner : MonoBehaviour
     public GameObject popUp;
     public GameObject parent;
     public GameObject logo;
+    public GameObject hintergrund;
+    public GameObject panel;
     public Canvas CanvasQR;
     public Button QRwiederholen;
 
@@ -27,8 +29,10 @@ public class QRandBarcodeScanner : MonoBehaviour
     private Texture2D snap;
     public void StartQR()
     {
+
         QrCode = string.Empty;
         RawImage renderer = rawImage;
+        rawImage.gameObject.SetActive(true);
         webcamTexture = new WebCamTexture(512, 512);
 
         if(qrSaved == false)
@@ -95,10 +99,13 @@ public class QRandBarcodeScanner : MonoBehaviour
 
     private void OpenPopUP()
     {
+        rawImage.gameObject.SetActive(false);
+        hintergrund.SetActive(false);
         temp.TempQRcode = QrCode;
         qrSaved = true;
         logo.SetActive(false);
         GameObject PopUp = Instantiate(popUp,parent.transform);
+        QRwiederholen.interactable = false;
         popUp.transform.localPosition = new Vector3(0, 0, 0);
         PopUp.GetComponentInChildren<TextMeshProUGUI>().text = "Der QR-Code entspricht:\n " + QrCode;
     }
@@ -109,8 +116,11 @@ public class QRandBarcodeScanner : MonoBehaviour
         if(PopUp != null)
         {
             Destroy(PopUp);
+            
         }
-
+        panel.SetActive(true);
+        rawImage.gameObject.SetActive(false);
+        hintergrund.SetActive(true);
         parent.SetActive(false);
         StopWebcam();
         gameObject.SetActive(false);
@@ -119,7 +129,6 @@ public class QRandBarcodeScanner : MonoBehaviour
     public void DebugQR()
     {
         QrCode = "debugCode";
-        //Result = null;
         OpenPopUP();
     }
 
@@ -138,6 +147,13 @@ public class QRandBarcodeScanner : MonoBehaviour
     {
         QrCode = temp.TempQRcode;
         OpenPopUP();
+    }
+
+    private void ChangeMaterial()
+    {
+        MaterialKerfa canvasMaterial = GameObject.Find("Material").GetComponent<MaterialKerfa>();
+        rawImage.material = null;
+        rawImage.material = canvasMaterial.uiDefault;
     }
 }
 

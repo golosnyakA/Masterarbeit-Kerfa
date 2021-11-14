@@ -11,8 +11,6 @@ public class PopUPButtons : MonoBehaviour
     public void Start()
     {
         qrScanner = GameObject.Find("QR-Manager").GetComponent<QRandBarcodeScanner>();
-        MaterialKerfa canvasMaterial = GameObject.Find("Material").GetComponent<MaterialKerfa>();
-        qrScanner.rawImage.material = canvasMaterial.uiDefault;
     }
     public void Bestaetigen()
     {
