@@ -1,15 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using ZXing;
 
-public class Webcam : MonoBehaviour
+public class Webcam : QRCode
 {
 
     WebCamTexture tex;
     public RawImage display;
-
-
 
     int currentCamIndex = 0;
     public void SwapCam_Clicked()
@@ -29,6 +29,7 @@ public class Webcam : MonoBehaviour
             display.texture = null;
             tex.Stop();
             tex = null;
+
         }
         else
         {
@@ -40,7 +41,8 @@ public class Webcam : MonoBehaviour
             quatRot.eulerAngles = new Vector3(0, 0, antiRotation);
             display.transform.rotation = quatRot;
             tex.Play();
+
+            StartCoroutine(GetQRCode(tex));
         }
     }
-
 }

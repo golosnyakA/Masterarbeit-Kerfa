@@ -29,7 +29,6 @@ public class QRandBarcodeScanner : MonoBehaviour
     private Texture2D snap;
     public void StartQR()
     {
-
         QrCode = string.Empty;
         RawImage renderer = rawImage;
         rawImage.gameObject.SetActive(true);

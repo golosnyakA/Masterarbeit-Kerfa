@@ -42,4 +42,10 @@ public class PopUPButtons : MonoBehaviour
         qrScanner.CloseCanvas();
         Destroy(parent);
     }
+
+    public void AuftragsnummerBestätigen()
+    {
+
+    }
+      
 }

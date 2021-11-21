@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,11 @@ public class ScreenshotHandler : MonoBehaviour
     private Camera myCamera;
     private static ScreenshotHandler instance;
     private bool takesScreenshotOnNextFrame;
+    public GameObject buttons;
+    public string auftragsnummer;
+    public string fotopath;
+    public int Anzahl;
 
-    public RawImage rawImage;
     private void Awake()
     {
         instance = this;
@@ -27,14 +31,16 @@ public class ScreenshotHandler : MonoBehaviour
             renderResult.ReadPixels(rect, 0, 0);
 
             byte[] byteArray = renderResult.EncodeToPNG();
-            
-            System.IO.File.WriteAllBytes(Application.dataPath + "/CameraScreenshots.png", byteArray);
+
+            System.IO.DirectoryInfo ParentDirectory = new System.IO.DirectoryInfo(fotopath);
+            System.IO.File.WriteAllBytes(fotopath+ "/"+ auftragsnummer +"_"+Anzahl +".png", byteArray);
             Debug.Log("Saved CameraScreenshot");
+            Anzahl = 0;
 
             RenderTexture.ReleaseTemporary(renderTexture);
             myCamera.targetTexture = null;
 
-
+            buttons.SetActive(true);
         }
     }
     public void TakeScreenshot(int width, int height)
@@ -48,9 +54,26 @@ public class ScreenshotHandler : MonoBehaviour
         instance.TakeScreenshot(width, height);
 
     }
-
     public void OnButtonPressed()
     {
-        TakeScreenshot_Static(1024, 450);
+        CountPictures();
+        buttons.SetActive(false);
+        TakeScreenshot_Static(1024, 768);
+    }
+
+    public void CountPictures()
+    {
+        DirectoryInfo ParentDirectory = new DirectoryInfo(fotopath);
+        foreach (FileInfo file in ParentDirectory.EnumerateFiles())
+        {
+            if (file.Name.Substring(file.Name.Length - 4) == ".png")
+            {
+                Anzahl++;
+            }
+            else
+            {
+                Anzahl = 0;
+            }
+        }
     }
 }
