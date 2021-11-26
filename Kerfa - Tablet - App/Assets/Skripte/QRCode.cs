@@ -22,6 +22,7 @@ public class QRCode:MonoBehaviour
         {
             try
             {
+                webcamTexture.Play();
                 snap.SetPixels32(webcamTexture.GetPixels32());
                 var Result = barCodeReader.Decode(snap.GetRawTextureData(), webcamTexture.width, webcamTexture.height, RGBLuminanceSource.BitmapFormat.ARGB32);
                 if (Result != null)
@@ -61,6 +62,13 @@ public class QRCode:MonoBehaviour
 
     public void StopWebcam()
     {
-       webcamTexture.Stop();
+       //webcamTexture.Stop();
+        if (webcamTexture != null)
+        {
+            StopCoroutine(GetQRCode(webcamTexture));
+            webcamTexture.Stop();
+            Webcam web = new Webcam();
+            web.StartStopCam_Clicked();
+        }
     }
 }

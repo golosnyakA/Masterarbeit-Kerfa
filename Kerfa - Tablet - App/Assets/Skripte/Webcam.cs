@@ -26,6 +26,7 @@ public class Webcam : QRCode
     {
         if( tex != null)
         {
+            Debug.Log("hier");
             display.texture = null;
             tex.Stop();
             tex = null;

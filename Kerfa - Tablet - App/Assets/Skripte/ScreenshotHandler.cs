@@ -13,6 +13,7 @@ public class ScreenshotHandler : MonoBehaviour
     public string auftragsnummer;
     public string fotopath;
     public int Anzahl;
+    public AuftragsnummerChecken auftragsnummerChecken;
 
     private void Awake()
     {
@@ -41,6 +42,8 @@ public class ScreenshotHandler : MonoBehaviour
             myCamera.targetTexture = null;
 
             buttons.SetActive(true);
+
+            auftragsnummerChecken.Meldung_positiv("Foto aufgenommen");
         }
     }
     public void TakeScreenshot(int width, int height)

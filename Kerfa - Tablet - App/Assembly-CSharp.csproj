@@ -102,6 +102,7 @@
     <Compile Include="Assets\Skripte\AutoCanvas.cs" />
     <Compile Include="Assets\Skripte\ButtonDebug.cs" />
     <Compile Include="Assets\Skripte\ChangeUI.cs" />
+    <Compile Include="Assets\Skripte\DeleteIn3Sec.cs" />
     <Compile Include="Assets\Skripte\Manager.cs" />
     <Compile Include="Assets\Skripte\MaterialKerfa.cs" />
     <Compile Include="Assets\Skripte\OpenKOS.cs" />
