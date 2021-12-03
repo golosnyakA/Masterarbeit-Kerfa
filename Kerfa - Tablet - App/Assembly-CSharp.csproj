@@ -101,6 +101,7 @@
     <Compile Include="Assets\Skripte\AuftragsnummerChecken.cs" />
     <Compile Include="Assets\Skripte\AutoCanvas.cs" />
     <Compile Include="Assets\Skripte\ButtonDebug.cs" />
+    <Compile Include="Assets\Skripte\ButtonOverviewArbeitsanweisung.cs" />
     <Compile Include="Assets\Skripte\ChangeUI.cs" />
     <Compile Include="Assets\Skripte\DeleteIn3Sec.cs" />
     <Compile Include="Assets\Skripte\Manager.cs" />

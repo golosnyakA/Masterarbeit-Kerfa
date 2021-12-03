@@ -7,4 +7,5 @@ public class Manager : MonoBehaviour
     public GameObject qrManager;
     public GameObject fileManager;
     public GameObject webcamManager;
+    public GameObject CanvasManager;
 }
