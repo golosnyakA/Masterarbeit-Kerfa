@@ -12,4 +12,14 @@ public class ButtonOverviewArbeitsanweisung : MonoBehaviour
                 children.gameObject.SetActive(false);  
         }
     }
+
+    public void Activate()
+    {
+        foreach (Transform children in buttonLayout.transform)
+        {
+            children.gameObject.SetActive(true);
+        }
+    }
+
+
 }
