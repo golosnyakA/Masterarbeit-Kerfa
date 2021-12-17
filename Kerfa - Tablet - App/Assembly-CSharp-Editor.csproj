@@ -263,6 +263,9 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="lib_netstandard2.0_System.Data.OleDb">
+      <HintPath>C:/Masterarbeit- Unity/Masterarbeit-Unity/Masterarbeit-Kerfa/Kerfa - Tablet - App/Assets/Plugins/lib_netstandard2.0_System.Data.OleDb.dll</HintPath>
+    </Reference>
     <Reference Include="zxing">
       <HintPath>C:/Masterarbeit- Unity/Masterarbeit-Unity/Masterarbeit-Kerfa/Kerfa - Tablet - App/Assets/Plugins/zxing.dll</HintPath>
     </Reference>

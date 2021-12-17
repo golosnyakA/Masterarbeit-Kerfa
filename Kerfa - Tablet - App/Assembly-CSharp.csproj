@@ -362,6 +362,9 @@
     <Reference Include="UnityEditor">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.17f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="lib_netstandard2.0_System.Data.OleDb">
+      <HintPath>C:/Masterarbeit- Unity/Masterarbeit-Unity/Masterarbeit-Kerfa/Kerfa - Tablet - App/Assets/Plugins/lib_netstandard2.0_System.Data.OleDb.dll</HintPath>
+    </Reference>
     <Reference Include="zxing">
       <HintPath>C:/Masterarbeit- Unity/Masterarbeit-Unity/Masterarbeit-Kerfa/Kerfa - Tablet - App/Assets/Plugins/zxing.dll</HintPath>
     </Reference>
